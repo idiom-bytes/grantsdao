@@ -4,7 +4,7 @@
 // }
 // mapping(address => Validator) public validators;
 contract GrantFactory {
-    event Created(address grant, address owner, bytes32 name, bytes32 kpi, uint target, uint balance, uint expiration);
+    event GrantCreated(address grant, address owner, bytes32 name, bytes32 kpi, uint target, uint balance, uint expiration);
     
     address public owner;
     mapping(address => Grant) public getGrant;
@@ -26,6 +26,6 @@ contract GrantFactory {
         
         getGrant[grant] = grant;
         allGrants.push(grant);
-        emit PairCreated(grant, grantOwner, name, kpi, target, balance, IGrant(grant).getExpiration() );
+        emit GrantCreated(grant, grantOwner, name, kpi, target, balance, IGrant(grant).getExpiration() );
     }
 }
